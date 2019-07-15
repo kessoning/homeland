@@ -29,12 +29,6 @@ As it uses gulp, you will only need to run
 
 everytime you make an edit.
 
-### Thanks to
-
-The tutorial by Matthew Willox was very helpful to understand how to handle glslify, I just adapted it for Three.js. There are not so many tutorials out there for this, I might write one.
-
-Find the tutorial here: http://blog.gskinner.com/archives/2019/01/custom-shader-glslify.html
-
 ### License
 Do everything you want with the code, as long as it is not for commercial purpose (jn that case let me know). Just, mentioning me would be much appreciated. 
 
