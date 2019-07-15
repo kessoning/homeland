@@ -1,116 +1,157 @@
-var _0x4c91 = ['push', 'mobile', 'random', 'cos', 'postMessage', 'ImprovedNoise.js', 'onmessage', 'data', 'sin'];
-(function (_0x23d3ef, _0x266d82) {
-    var _0x21da1d = function (_0x58e476) {
-        while (--_0x58e476) {
-            _0x23d3ef['push'](_0x23d3ef['shift']());
-        }
-    };
-    _0x21da1d(++_0x266d82);
-}(_0x4c91, 0x1c7));
-var _0x161d = function (_0x47ff91, _0x4cb10b) {
-    _0x47ff91 = _0x47ff91 - 0x0;
-    var _0x4c040a = _0x4c91[_0x47ff91];
-    return _0x4c040a;
-};
-importScripts(_0x161d('0x0'));
-self[_0x161d('0x1')] = function (_0x598820) {
-    if (_0x598820[_0x161d('0x2')] !== undefined) {
-        var _0x555e7f = new ImprovedNoise();
-        var _0x397243;
-        var _0x13d33f = [];
-        var _0x42079a = [];
-        var _0x5cc29c = [];
-        var _0x3af688 = [];
-        var _0x1d4660 = [];
-        var _0x35de15 = [];
-        var _0x49a6cd = [];
-        var _0x374a91 = [];
-        var _0x57838a = [];
-        var _0x202c12 = 0x0;
-        var _0x56bec5 = 0x0;
-        var _0x584b3e = _0x598820['data']['pn'];
-        var _0x1a4f17 = _0x598820['data']['pn'];
-        for (var _0x19b3e7 = 0x0; _0x19b3e7 < _0x584b3e; _0x19b3e7++) {
-            var _0xa0c32e = 0x0;
-            var _0x2078e0 = 0x0;
-            var _0x118675 = _0x19b3e7 / _0x584b3e * Math['PI'];
-            for (var _0x5a652b = 0x0; _0x5a652b < _0x1a4f17; _0x5a652b++) {
-                var _0x210b7a = 0x0;
-                var _0x26d941 = _0x5a652b / _0x1a4f17 * (Math['PI'] * 0x1);
-                _0x202c12 = Math[_0x161d('0x3')](_0x118675);
-                _0xa0c32e = Math[_0x161d('0x3')](_0x26d941);
-                _0x35de15[_0x161d('0x4')](Math['cos'](_0x26d941) * Math['cos'](_0x118675));
-                _0x35de15[_0x161d('0x4')](Math[_0x161d('0x3')](_0x26d941) * Math['cos'](_0x118675));
-                _0x35de15[_0x161d('0x4')](Math[_0x161d('0x3')](_0x118675));
-                var _0x4aa8d6 = _0x19b3e7 * 0x2 - _0x584b3e * 0x1;
-                var _0x4ebe64 = 0x0;
-                var _0x1eda86 = _0x5a652b * 0x2 - _0x1a4f17 * 0x1;
-                _0x3af688[_0x161d('0x4')](_0x210b7a);
-                if (_0x598820[_0x161d('0x2')][_0x161d('0x5')]) {
-                    _0x13d33f[_0x161d('0x4')](_0x4aa8d6 * _0x598820[_0x161d('0x2')]['m']);
-                    _0x13d33f[_0x161d('0x4')](_0x4ebe64);
-                    _0x13d33f[_0x161d('0x4')](_0x1eda86 * (_0x598820[_0x161d('0x2')]['m'] * 0.75));
+importScripts('ImprovedNoise.js');
+// importScripts('https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js');
+
+self.onmessage = function (e) {
+
+    if (e.data !== undefined) {
+
+        var perlin = new ImprovedNoise();
+
+        var ps;
+
+        var pos = [];
+        var col = [];
+        var noises = [];
+        var move = [];
+        var phase = [];
+
+        var angles = [];
+
+        var noise_val = [];
+
+        var micronoise_val = [];
+
+        var fades = [];
+
+        var nx = 0;
+        var mnx = 0;
+
+        var w = e.data.pn;
+        var h = e.data.pn;
+
+        for (var x = 0; x < w; x++) {
+
+            var ny = 0;
+            var mny = 0;
+
+            var a = (x / w) * (Math.PI);
+
+            for (var y = 0; y < h; y++) {
+
+                var m = 0.0;
+
+                var b = (y / h) * (Math.PI * 1);
+
+                nx = Math.sin(a);
+                ny = Math.sin(b);
+
+                angles.push(Math.cos(b) * Math.cos(a));
+                angles.push(Math.sin(b) * Math.cos(a));
+                angles.push(Math.sin(a));
+
+                var _x = (x * 2) - (w * 1);
+                var _y = 0;
+                var _z = (y * 2) - (h * 1);
+
+                move.push(m);
+
+                if (e.data.mobile) {
+                    pos.push(_x * e.data.m);
+                    pos.push(_y);
+                    pos.push(_z * (e.data.m * 0.75));
                 } else {
-                    _0x13d33f[_0x161d('0x4')](_0x4aa8d6 * (_0x598820[_0x161d('0x2')]['m'] * 0x1));
-                    _0x13d33f[_0x161d('0x4')](_0x4ebe64);
-                    _0x13d33f['push'](_0x1eda86 * _0x598820[_0x161d('0x2')]['m']);
+                    pos.push(_x * (e.data.m * 1));
+                    pos.push(_y);
+                    pos.push(_z * e.data.m);
                 }
-                _0x42079a[_0x161d('0x4')](0x1);
-                _0x42079a[_0x161d('0x4')](0x1);
-                _0x42079a[_0x161d('0x4')](0x1);
-                _0x42079a[_0x161d('0x4')](0x1);
-                _0x5cc29c['push'](Math[_0x161d('0x6')]() * 0.000025);
-                _0x57838a[_0x161d('0x4')](Math[_0x161d('0x6')]() * 0.1);
-                _0x49a6cd[_0x161d('0x4')](_0x202c12);
-                _0x49a6cd['push'](_0xa0c32e);
-                _0x374a91[_0x161d('0x4')](_0x56bec5);
-                _0x374a91[_0x161d('0x4')](_0x2078e0);
-                _0x1d4660[_0x161d('0x4')](0x186a0 + Math[_0x161d('0x6')]() * (Math['PI'] * 0x2));
-                if (Math['random']() > 0.95) {
-                    _0x210b7a = 0x1;
-                    _0x4ebe64 += Math[_0x161d('0x6')]() * 0x3e8;
-                    _0x3af688[_0x161d('0x4')](_0x210b7a);
-                    _0x57838a[_0x161d('0x4')](Math[_0x161d('0x6')]() * 0.1);
-                    if (_0x598820[_0x161d('0x2')][_0x161d('0x5')]) {
-                        _0x13d33f[_0x161d('0x4')](_0x4aa8d6 * _0x598820[_0x161d('0x2')]['m']);
-                        _0x13d33f[_0x161d('0x4')](_0x4ebe64);
-                        _0x13d33f[_0x161d('0x4')](_0x1eda86 * (_0x598820[_0x161d('0x2')]['m'] * 0.25));
+
+                col.push(1.0);
+                col.push(1.0);
+                col.push(1.0);
+                col.push(1.0);
+
+                noises.push(Math.random() * 0.000025);
+                fades.push(Math.random() * 0.1);
+
+                noise_val.push(nx);
+                noise_val.push(ny);
+
+                micronoise_val.push(mnx);
+                micronoise_val.push(mny);
+
+                phase.push(100000.0 + (Math.random() * (Math.PI * 2.0)));
+
+                if (Math.random() > 0.95) {
+                    m = 1.0;
+                    _y += Math.random() * 1000.0;
+
+                    move.push(m);
+
+                    fades.push(Math.random() * 0.1);
+
+                    if (e.data.mobile) {
+                        pos.push(_x * e.data.m);
+                        pos.push(_y);
+                        pos.push(_z * (e.data.m * 0.25));
                     } else {
-                        _0x13d33f['push'](_0x4aa8d6 * (_0x598820[_0x161d('0x2')]['m'] * 0x1));
-                        _0x13d33f[_0x161d('0x4')](_0x4ebe64);
-                        _0x13d33f['push'](_0x1eda86 * _0x598820[_0x161d('0x2')]['m']);
+                        pos.push(_x * (e.data.m * 1));
+                        pos.push(_y);
+                        pos.push(_z * e.data.m);
                     }
-                    _0x35de15[_0x161d('0x4')](Math[_0x161d('0x7')](_0x26d941) * Math[_0x161d('0x7')](_0x118675));
-                    _0x35de15['push'](Math[_0x161d('0x3')](_0x26d941) * Math[_0x161d('0x7')](_0x118675));
-                    _0x35de15[_0x161d('0x4')](Math['sin'](_0x118675));
-                    _0x42079a[_0x161d('0x4')](0x1);
-                    _0x42079a[_0x161d('0x4')](0x1);
-                    _0x42079a[_0x161d('0x4')](0x1);
-                    _0x42079a[_0x161d('0x4')](0x1);
-                    _0x5cc29c[_0x161d('0x4')](Math['random']() * 0.000025);
-                    _0x49a6cd[_0x161d('0x4')](_0x202c12);
-                    _0x49a6cd['push'](_0xa0c32e);
-                    _0x374a91[_0x161d('0x4')](_0x56bec5);
-                    _0x374a91[_0x161d('0x4')](_0x2078e0);
-                    _0x1d4660[_0x161d('0x4')](0x186a0 + Math[_0x161d('0x6')]() * (Math['PI'] * 0x2));
+
+                    angles.push(Math.cos(b) * Math.cos(a));
+                    angles.push(Math.sin(b) * Math.cos(a));
+                    angles.push(Math.sin(a));
+
+                    col.push(1.0);
+                    col.push(1.0);
+                    col.push(1.0);
+                    col.push(1.0);
+
+                    noises.push(Math.random() * 0.000025);
+
+                    noise_val.push(nx);
+                    noise_val.push(ny);
+
+                    micronoise_val.push(mnx);
+                    micronoise_val.push(mny);
+
+                    phase.push(100000.0 + (Math.random() * (Math.PI * 2.0)));
+
                 }
-                _0xa0c32e += 0.01;
-                _0x2078e0 += 0.1;
+
+                ny += 0.01;
+                mny += 0.1;
+
             }
-            _0x202c12 += 0.01;
-            _0x56bec5 += 0.1;
+
+            nx += 0.01;
+            mnx += 0.1;
+
         }
-        var _0x456e4b = {
-            'p': _0x13d33f,
-            'n': _0x5cc29c,
-            'c': _0x42079a,
-            'm': _0x3af688,
-            'i': _0x1d4660,
-            'nx': _0x49a6cd,
-            'mnx': _0x374a91,
-            'a': _0x35de15,
-            'f': _0x57838a
+
+        var result = {
+            p: pos,
+            n: noises,
+            c: col,
+            m: move,
+            i: phase,
+            nx: noise_val,
+            mnx: micronoise_val,
+            a: angles,
+            f: fades,
         };
-        this[_0x161d('0x8')](_0x456e4b);
+
+        this.postMessage(result);
     }
-};
+
+}
+
+// self.onmessage = function(e) {
+//     // console.log("E " + e.data);
+
+//     // Do all the work here the postMessage the result
+//     var result = 10 + e.data;
+//     console.log("result: " + result);
+//     self.postMessage(result)
+//   }
