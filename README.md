@@ -8,7 +8,7 @@ A WebGL2 experiment with custom GLSL, using a bunch of *ify npm modules (glslify
 For the full version you can visit my website | https://kesson.io
 
 ### howto to run on your own machine, modify and expand
-If you really find it interesting, download it, run it, modifify it, destroy it (please!), but please if you use it always report my credits, I will appreciate very much.
+If you really find it interesting, download it, run it, modifify it, destroy it (please!).
 
 ###### Download
 
