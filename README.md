@@ -12,7 +12,7 @@ If you really find it interesting, download it, run it, modifify it, destroy it 
 
 ###### Download
 
-`git clone `
+`git clone https://github.com/KessonDalef/homeland.git`
 
 ###### Run it
 Use a simple web server. I personally find very interesting the live server on Visual Studio Code, but if you know any better solution go for it (and tell me please!)
