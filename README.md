@@ -10,7 +10,7 @@ For the full version you can visit my website | https://kesson.io
 ### how to run on your own machine, modify and expand
 If you really find it interesting, download it, run it, modifify it, destroy it (please!).
 
-###### Download
+###### Download it
 
 `git clone https://github.com/KessonDalef/homeland.git`
 
