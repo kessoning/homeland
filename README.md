@@ -30,6 +30,6 @@ As it uses gulp, you will only need to run
 everytime you make an edit.
 
 ### License
-Do everything you want with the code, as long as it is not for commercial purpose (jn that case let me know). Just, mentioning me would be much appreciated. 
+Do everything you want with the code, as long as it is not for commercial purpose (in that case let me know). Just, mentioning me would be much appreciated. 
 
 Sharing is caring.
