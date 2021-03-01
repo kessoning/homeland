@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "glsl-noise": "0.0.0",
-    "three": "^0.106.2",
+    "three": "^0.125.0",
     "three-orbit-controls": "^82.1.0",
     "vinyl-buffer": "^1.0.1"
   }
